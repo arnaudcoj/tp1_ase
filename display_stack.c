@@ -16,7 +16,8 @@ void q1 (int param1, int param2) {
 
   asm ("movl %%esp, %0" "\n\t" "movl %%ebp, %1"
        : "=r"(esp),"=r"(ebp)
-       );
+       :
+       :);
 
   printf("esp = %u\nebp = %u\n", esp, ebp);
   printf("&esp = %u\n&ebp = %u\n", &esp, &ebp);
@@ -32,8 +33,9 @@ void f1 (int param1, int param2) {
   unsigned int ebp = 0;
   
   asm ("movl %%esp, %0" "\n\t" "movl %%ebp, %1"
-       : "=r"(esp),"=r"(ebp)
-       );
+       :"=r"(esp),"=r"(ebp)
+       :
+       :);
 
   printf("\tesp = %u\n\tebp = %u\n", esp, ebp);
   printf("\t&esp = %u\n\t&ebp = %u\n", &esp, &ebp);
@@ -49,7 +51,8 @@ void f2 (int param1, int param2) {
   
   asm ("movl %%esp, %0" "\n\t" "movl %%ebp, %1"
        : "=r"(esp),"=r"(ebp)
-       );
+       :
+       :);
 
   printf("\t\tesp = %u\n\t\tebp = %u\n", esp, ebp);
   printf("\t\t&esp = %u\n\t\t&ebp = %u\n", &esp, &ebp);

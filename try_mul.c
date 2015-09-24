@@ -15,17 +15,20 @@ int mul(int depth)
       if (i) 
 	return i * mul(depth+1);
       else
-	throw(pctx, 0);
+	return throw(pctx, 0);
     }
-    return 1;
+    return 0;
 }
 
 int main (void)
 {
     int product;
-    pctx = malloc(sizeof(struct ctx_s));
+    pctx = (struct ctx_s *) malloc(sizeof(struct ctx_s));
 
     printf("A list of int, please\n"); 
-    product = try(pctx, mul, 0);
-    printf("product = %d\n", product); 
+    product = try(pctx, &mul, 0);
+    printf("product = %d\n", product);
+    free(pctx);
+
+    return EXIT_SUCCESS;
 }
