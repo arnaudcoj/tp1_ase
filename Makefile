@@ -1,8 +1,14 @@
 CC=gcc
-CFLAGS=-m32 -g
+CFLAGS=-m32 -g -Wall
 
-app: main.c 
+display_stack: display_stack.c 
 	$(CC) $(CFLAGS) -o $@ $^
 
+try_mul: try.o try_mul.c  
+	$(CC) $(CFLAGS) -o $@  $^
+
+try.o: try.c
+	$(CC) $(CFLAGS) -c $^
+
 clean:
-	rm -rf *~ app
+	rm -rf *~ *.o display_stack try_mul

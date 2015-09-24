@@ -11,7 +11,7 @@ struct ctx_s {
   void * ctx_ebp;  
 };
 
-int try (struct ctx_s *pctx, funct_t *f, int arg);
+int try (struct ctx_s *pctx, func_t *f, int arg);
 int throw (struct ctx_s *pctx, int val);
 
 #endif //TRY_H
