@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 
 typedef int (func_t)(int); /* a function that returns an int from an int */
 

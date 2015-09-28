@@ -1,5 +1,7 @@
 CC=gcc
-CFLAGS=-m32 -g -Wall
+CFLAGS=-m32
+
+all: try_mul display_stack
 
 display_stack: display_stack.c 
 	$(CC) $(CFLAGS) -o $@ $^

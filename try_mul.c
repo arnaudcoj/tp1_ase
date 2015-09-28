@@ -15,8 +15,9 @@ int mul(int depth)
       if (i) 
 	return i * mul(depth+1);
       else
-	return throw(pctx, 0);
+	throw(pctx, 0);
     }
+
     return 0;
 }
 
@@ -28,6 +29,7 @@ int main (void)
     printf("A list of int, please\n"); 
     product = try(pctx, &mul, 0);
     printf("product = %d\n", product);
+
     free(pctx);
 
     return EXIT_SUCCESS;
